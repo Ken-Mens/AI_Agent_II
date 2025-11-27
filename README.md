@@ -1,13 +1,18 @@
-Features
+🏠 AI Interior Design Agent
+This project implements a multi-step AI Agent designed to generate interior design concepts for every room in a user-provided floorplan, based on a specified design style. The agent is driven by a Streamlit UI for easy interaction.
+
+🌟 Features
+Streamlit UI: Provides a simple web interface for uploading floorplans and submitting design styles.
+
 Multimodal Input: Accepts a visual floorplan image and a text design style prompt.
 
-Iterative Design: Generates up to 5 distinct images, one for each major room identified in the floorplan (e.g., Living Room, Kitchen, Bedrooms).
+Iterative Design: Generates up to 5 distinct images, one for each major room identified.
 
 Custom Tool Integration: Uses a custom tool (save_design_data_to_database) to structure and save generated design details (furniture, color palette, style) after each image is created.
 
 Guardrails: Employs an input guardrail to ensure the user's floorplan is valid and the design request is appropriate.
 
-Secure Output: Saves all generated images to a local output/ directory.
+Secure Output: Saves all generated images to a local output/ directory and displays them in the UI.
 
 🛠️ Setup and Installation
 1. Clone the Repository
@@ -16,62 +21,64 @@ Bash
 git clone https://github.com/Ken-Mens/AI_Agent_II.git
 cd AI_Agent_II
 2. Environment Setup
-This project requires a Python virtual environment.
-
 Bash
 
-# Create the virtual environment
+# Create and activate the virtual environment (e.g., for Windows):
 python -m venv .venv
-
-# Activate the virtual environment
-# Windows:
 .\.venv\Scripts\activate
-# macOS/Linux:
-# source .venv/bin/activate
 3. Install Dependencies
-Install the required packages using the requirements.txt file:
+Install all required packages (including streamlit, asyncio, etc.) from the requirements.txt file:
 
 Bash
 
 pip install -r requirements.txt
 4. API Key Configuration (Crucial)
-The project requires an OpenAI API key for the gpt-4.1 model and image generation. For security, this key is not tracked by Git.
+The project requires an OpenAI API key. This key must be stored in a local, untracked file.
 
-Create a file named .env in the root directory of the project.
+Create a file named .env in the root directory.
 
 Add your key inside the file in the following format:
 
-Excerpt
-
+Extrait de code
 
 OPENAI_API_KEY="sk-YOUR_SECRET_KEY_HERE"
-🚀 How to Run the Agent
-The main script is configured to run the agent with a predefined floorplan image (resources/floorplan.jpg) and a design style.
+🚀 Running the Application
+The agent is now run via the Streamlit interface using the app.py file.
 
-You can modify the style in main.py before running.
+Ensure your virtual environment is active.
 
-Run the project from the root directory with the virtual environment activated:
+Run the application using the Streamlit command:
 
 Bash
 
-python main.py
+streamlit run app.py
+The application will open automatically in your browser (usually at http://localhost:8501).
+
+Usage Instructions:
+Enter your desired Interior Design Styling (e.g., "Bohemian with warm colors").
+
+Upload your floorplan image using the file uploader.
+
+Click "Run Agent".
+
 Expected Output
-The script will:
+The application will display:
 
-Print the final text output (the structured design data saved by the custom tool).
+The structured Design Plan (Style, Rooms, Furniture, etc.).
 
-Automatically open the up to 5 generated .png image files (e.g., generated_image_0.png through generated_image_4.png) from the output/ directory.
+The up to 5 generated interior design images for the rooms.
 
 📂 Project Structure
 AI_Agent_II/
 ├── .venv/                     # Python Virtual Environment (Ignored by Git)
+├── app.py                     # Streamlit UI interface (NEW)
 ├── lib/
-│   ├── agent.py               # Main Agent definition, instructions, and run loop
-│   ├── files.py               # Utility functions (open_file, retrieve_image, ensure_output_dir)
-│   └── tools.py               # Custom tool definition (save_design_data_to_database)
+│   ├── agent.py               # Main Agent definition, instructions, and run loop (MODIFIED)
+│   ├── files.py               # Utility functions
+│   └── tools.py               # Custom tool definition
 ├── output/                    # Generated images and design_output.txt (Ignored by Git)
 ├── resources/
 │   └── floorplan.jpg          # Input image file
-├── .gitignore                 # Specifies files/folders to ignore (.env, .venv/, output/)
-├── main.py                    # Entry point for the application
+├── .gitignore                 # Specifies files/folders to ignore
+├── main.py                    # (No longer used to run the agent)
 └── requirements.txt           # Project dependencies
