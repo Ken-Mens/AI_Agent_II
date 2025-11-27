@@ -68,6 +68,21 @@ The structured Design Plan (Style, Rooms, Furniture, etc.).
 
 The up to 5 generated interior design images for the rooms.
 
-📂 Project Structure
+## 📂 Project Structure
 
-AI_Agent_II/ ├── .venv/ # Python Virtual Environment (Ignored by Git) ├── app.py # Streamlit UI interface (NEW) ├── lib/ │ ├── agent.py # Main Agent definition, instructions, and run loop  │ ├── files.py # Utility functions │ └── tools.py # Custom tool definition ├── output/ # Generated images and design_output.txt (Ignored by Git) ├── resources/ │ └── floorplan.jpg # Input image file ├── .gitignore # Specifies files/folders to ignore ├── main.py # (No longer used to run the agent) └── requirements.txt # Project dependencies
+<pre>
+AI_Agent_II/
+├── .venv/                  # Python Virtual Environment (Ignored by Git)
+├── app.py                  # Streamlit UI interface (NEW)
+├── lib/
+│   ├── agent.py            # Main Agent definition, instructions, and run loop (MODIFIED)
+│   ├── files.py            # Utility functions
+│   └── tools.py            # Custom tool definition
+├── output/                 # Generated images and design_output.txt (Ignored by Git)
+├── resources/
+│   └── floorplan.jpg       # Input image file
+├── .gitignore              # Specifies files/folders to ignore
+├── main.py                 # (No longer used to run the agent)
+└── requirements.txt        # Project dependencies
+</pre>
+
