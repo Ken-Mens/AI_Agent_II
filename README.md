@@ -69,6 +69,7 @@ The structured Design Plan (Style, Rooms, Furniture, etc.).
 The up to 5 generated interior design images for the rooms.
 
 📂 Project Structure
+
 AI_Agent_II/
 ├── .venv/                     # Python Virtual Environment (Ignored by Git)
 ├── app.py                     # Streamlit UI interface (NEW)
