@@ -122,7 +122,13 @@ async def run_agent(design_style: str, floorplan_image_path: str):
                 open_file(full_output_path) 
                 
                 image_count += 1 # Increment the count AFTER the file has been saved
-
+        return {
+            "final_output": result.final_output,
+            "image_paths": image_paths
+        }
     except InputGuardrailTripwireTriggered as e:
         print("Input guardrail triggered:", e)
-      
+        return None # Return None on failure
+    
+    # Also add a final return None outside the try/except block just in case
+    return None
